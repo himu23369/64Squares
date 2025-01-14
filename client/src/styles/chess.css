@@ -1,0 +1,53 @@
+.board {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  
+  .board.flipped {
+    transform: rotateX(180deg);
+  }
+  
+  .piece {
+    transform-style: preserve-3d;
+    transition: transform 0.2s;
+  }
+  
+  .board.flipped .piece {
+    transform: rotateX(180deg);
+  }
+  
+  .square {
+    position: relative;
+    transition: all 0.2s;
+  }
+  
+  .square::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    pointer-events: none;
+    transition: background-color 0.2s;
+  }
+  
+  .square:hover::before {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .piece {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+  }
+  
+  .piece.white {
+    color: #fff;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+  }
+  
+  .piece.black {
+    color: #000;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  }
